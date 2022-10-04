@@ -47,7 +47,7 @@ spec:
                 pathType: Prefix
         tls:
           - hosts:
-              - *host
+              - "emby.${SECRET_DOMAIN}"
             secretName: "emby-tls"
     persistence:
       config:
