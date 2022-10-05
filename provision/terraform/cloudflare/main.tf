@@ -5,10 +5,6 @@ terraform {
       source  = "cloudflare/cloudflare"
       version = "3.24.0"
     }
-    http = {
-      source  = "hashicorp/http"
-      version = "3.1.0"
-    }
     sops = {
       source  = "carlpett/sops"
       version = "0.7.1"
@@ -78,16 +74,12 @@ resource "cloudflare_zone_settings_override" "cloudflare_settings" {
   }
 }
 
-data "http" "ipv4" {
-  url = "http://ipv4.icanhazip.com"
-}
-
 resource "cloudflare_record" "ipv4" {
   name    = "ipv4"
   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = chomp(data.http.ipv4.response_body)
+  value   = "${data.sops_file.cloudflare_secrets.data["cloudflare_tunnel_id"]}.cfargotunnel.com"
   proxied = true
-  type    = "A"
+  type    = "CNAME"
   ttl     = 1
 }
 
