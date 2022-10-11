@@ -10,3 +10,5 @@ spec:
       protocol: TCP
       port: 6969
       targetPort: 6969
+  type: ExternalName
+  externalName: 192.168.50.217
