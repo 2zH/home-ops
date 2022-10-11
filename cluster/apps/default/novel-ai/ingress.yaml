@@ -14,7 +14,13 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: novel-ai
-              servicePort: http
+              service:
+                name: novel-ai
+                port:
+                  number: 80
             path: /
             pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - novel-ai.taugocauci.dev
+      secretName: novel-ai-tls
