@@ -17,7 +17,7 @@ spec:
               service:
                 name: novel-ai
                 port:
-                  number: 8080
+                  number: 6969
             path: /
             pathType: ImplementationSpecific
   tls:

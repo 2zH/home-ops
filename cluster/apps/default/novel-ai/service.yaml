@@ -5,15 +5,8 @@ metadata:
   name: novel-ai
   namespace: default
 spec:
-  selector:
-    app.kubernetes.io/instance: novel-ai
-    app.kubernetes.io/name: novel-ai
-    app.kubernetes.io/service: novel-ai
-  externalName: 192.168.50.217
   ports:
     - name: http
-      port: 8080
       protocol: TCP
+      port: 6969
       targetPort: 6969
-  sessionAffinity: None
-  type: ExternalName
