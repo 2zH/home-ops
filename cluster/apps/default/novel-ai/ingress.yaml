@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+    external-dns/is-public: "true"
+  name: novel-ai
+  namespace: default
+spec:
+  rules:
+    - host: novel-ai.taugocauci.dev
+      http:
+        paths:
+          - backend:
+              serviceName: novel-ai
+              servicePort: http
+            path: /
+            pathType: ImplementationSpecific
