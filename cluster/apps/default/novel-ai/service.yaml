@@ -9,7 +9,7 @@ spec:
     app.kubernetes.io/instance: novel-ai
     app.kubernetes.io/name: novel-ai
     app.kubernetes.io/service: novel-ai
-  ExternalName: 192.168.50.217
+  externalName: 192.168.50.217
   ports:
     - name: http
       port: 80
