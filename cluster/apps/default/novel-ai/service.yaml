@@ -12,7 +12,7 @@ spec:
   externalName: 192.168.50.217
   ports:
     - name: http
-      port: 80
+      port: 8080
       protocol: TCP
       targetPort: 6969
   sessionAffinity: None
